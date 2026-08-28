@@ -2,205 +2,99 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="utf-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Taleora | القراءة</title>
 
 <style>
 
-:root{
-  --bg:#100d0b;
-  --card:#191411;
-  --gold:#d9a45e;
-  --gold2:#f0c982;
-  --text:#fff8ef;
-  --muted:#b9aa9b;
-  --line:#ffffff12;
-}
-
-*{
-  box-sizing:border-box;
-}
-
 body{
   margin:0;
-  background:var(--bg);
-  color:var(--text);
+  background:#100d0b;
+  color:#fff8ef;
   font-family:Tahoma,Arial,sans-serif;
 }
 
-/* HEADER */
-
 header{
-  position:sticky;
-  top:0;
-  z-index:10;
-
+  padding:18px 6%;
+  border-bottom:1px solid #ffffff18;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-
-  padding:14px 6%;
-
-  background:#100d0bed;
-
-  backdrop-filter:blur(14px);
-
-  border-bottom:1px solid var(--line);
+  align-items:center;
 }
 
 .logo{
-  color:var(--gold2);
+  color:#f0c982;
   font-size:23px;
-  font-weight:900;
+  font-weight:bold;
 }
 
-.logo small{
-  display:block;
-  color:white;
-  font-size:8px;
-  letter-spacing:5px;
-  text-align:center;
-}
-
-.back{
-  background:#ffffff0b;
-  border:1px solid var(--line);
-  color:white;
-
-  padding:10px 16px;
-
+button{
+  border:0;
   border-radius:10px;
-
+  padding:12px 18px;
   cursor:pointer;
 }
 
-/* READER */
+.back{
+  background:#ffffff12;
+  color:white;
+}
 
 .reader{
+  max-width:800px;
   width:90%;
-  max-width:850px;
-
-  margin:55px auto 100px;
+  margin:50px auto;
 }
 
-.book-title{
+.title{
   text-align:center;
-  margin-bottom:45px;
+  margin-bottom:35px;
 }
 
-.book-title h1{
-  font-size:38px;
-  margin:0 0 12px;
+.title h1{
+  font-size:35px;
 }
 
-.book-title p{
-  color:var(--muted);
-  margin:0;
+.author{
+  color:#f0c982;
 }
 
 .content{
-  background:var(--card);
-
-  border:1px solid var(--line);
-
-  border-radius:20px;
-
-  padding:35px 40px;
-
-  box-shadow:0 20px 50px #0005;
+  background:#191411;
+  border:1px solid #ffffff12;
+  border-radius:18px;
+  padding:30px;
 }
 
 .chapter{
-  color:var(--gold2);
-
   text-align:center;
-
-  margin-bottom:30px;
-
+  color:#f0c982;
   font-size:22px;
+  margin-bottom:30px;
 }
 
 .content p{
   color:#eee3d8;
-
   font-size:18px;
-
   line-height:2.2;
-
-  margin:0 0 25px;
 }
 
 .next{
-  display:flex;
-
-  justify-content:center;
-
-  margin-top:35px;
-}
-
-.btn{
-  border:0;
-
-  border-radius:11px;
-
-  padding:13px 25px;
-
-  cursor:pointer;
-
-  font-weight:900;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold2),
-      var(--gold)
-    );
-
+  display:block;
+  margin:30px auto 0;
+  background:#f0c982;
   color:#24170d;
-}
-
-.message{
-  text-align:center;
-
-  color:var(--gold2);
-
-  margin-top:25px;
-
-  min-height:25px;
+  font-weight:bold;
 }
 
 footer{
-  padding:35px;
-
+  margin-top:80px;
+  padding:30px;
   text-align:center;
-
-  border-top:1px solid var(--line);
-
-  color:var(--muted);
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-  .book-title h1{
-    font-size:29px;
-  }
-
-  .content{
-    padding:25px 20px;
-  }
-
-  .content p{
-    font-size:16px;
-    line-height:2;
-  }
-
+  border-top:1px solid #ffffff12;
+  color:#b9aa9b;
 }
 
 </style>
@@ -209,38 +103,201 @@ footer{
 
 <body>
 
-
 <header>
 
 <div class="logo">
-
-رواية حكاية
-
-<small>
-TALEORA
-</small>
-
+Taleora
 </div>
 
 <button
 class="back"
-onclick="goBack()"
+onclick="history.back()"
 >
-
-← تفاصيل الرواية
-
+← رجوع
 </button>
 
 </header>
 
-
 <main class="reader">
 
+<div class="title">
 
-<div class="book-title">
-
-<h1 id="title">
+<h1 id="bookTitle">
 جاري تحميل الرواية...
 </h1>
 
-<p id="author">
+<div
+class="author"
+id="bookAuthor"
+>
+</div>
+
+</div>
+
+<article class="content">
+
+<div class="chapter">
+الفصل الأول
+</div>
+
+<div id="story">
+
+<p>
+مرحبًا بك في عالم Taleora.
+</p>
+
+<p>
+هذه صفحة القراءة الخاصة بالرواية.
+يمكنك هنا قراءة فصول الرواية بشكل مريح ومنظم.
+</p>
+
+<p>
+بدأت الحكاية، وكانت هناك أسرار كثيرة تنتظر أن يتم اكتشافها...
+</p>
+
+</div>
+
+<button
+class="next"
+onclick="nextChapter()"
+>
+الفصل التالي ←
+</button>
+
+</article>
+
+</main>
+
+<footer>
+
+Taleora © 2026
+
+</footer>
+
+<script>
+
+const books = {
+
+1:{
+title:"ألف شمس ساطعة",
+author:"خالد حسيني"
+},
+
+2:{
+title:"خريف البراءة",
+author:"أحمد مراد"
+},
+
+3:{
+title:"الرحلة",
+author:"باسم خندقجي"
+},
+
+4:{
+title:"قواعد العشق الأربعون",
+author:"إليف شافاق"
+},
+
+5:{
+title:"عندما يعزف الشيطان",
+author:"منى الشاذلي"
+},
+
+6:{
+title:"ليلة لا تنتهي",
+author:"محمد صادق"
+},
+
+7:{
+title:"1984",
+author:"جورج أورويل"
+},
+
+8:{
+title:"مئة عام من العزلة",
+author:"غابرييل غارسيا ماركيز"
+},
+
+9:{
+title:"الحصان الأسود",
+author:"أحمد خالد توفيق"
+},
+
+10:{
+title:"الأمير الصغير",
+author:"أنطوان دو سانت"
+},
+
+11:{
+title:"تذكرة إلى سرمد",
+author:"أحمد مراد"
+},
+
+12:{
+title:"رجال في الشمس",
+author:"غسان كنفاني"
+}
+
+};
+
+const urlParams =
+new URLSearchParams(
+window.location.search
+);
+
+const bookId =
+urlParams.get("id");
+
+const book =
+books[bookId];
+
+if(book){
+
+document.getElementById("bookTitle")
+.textContent=book.title;
+
+document.getElementById("bookAuthor")
+.textContent=
+"✍️ " + book.author;
+
+}
+
+else{
+
+document.getElementById("bookTitle")
+.textContent=
+"الرواية غير موجودة";
+
+}
+
+let chapter=1;
+
+function nextChapter(){
+
+chapter++;
+
+document.querySelector(".chapter")
+.textContent=
+"الفصل " + chapter;
+
+document.getElementById("story")
+.innerHTML=`
+
+<p>
+بدأ فصل جديد من الحكاية...
+</p>
+
+<p>
+تتطور الأحداث وتظهر تفاصيل جديدة
+تجعل القارئ يريد معرفة ما سيحدث بعد ذلك.
+</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+
+</html>
