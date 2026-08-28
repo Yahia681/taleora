@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>رواية حكاية | Taleora</title>
+<style>
+:root{--bg:#f7f1e9;--card:#fffaf4;--dark:#17120e;--brown:#4d2f1c;--gold:#c99558;--muted:#76695d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#211a15;font-family:Tahoma,Arial,sans-serif}
+header{position:sticky;top:0;z-index:10;background:#17120e;color:white;display:flex;align-items:center;gap:18px;padding:14px 5%;box-shadow:0 2px 12px #0002}
+.logo{font-size:25px;font-weight:800;color:#e7b873;line-height:1}.logo small{display:block;font-size:11px;letter-spacing:5px;text-align:center;color:#fff}
+.search{margin-right:auto;width:min(390px,45vw);background:#2b2520;border-radius:28px;padding:10px 16px;border:1px solid #ffffff18;color:white;outline:none}
+.icon{background:none;border:0;color:white;font-size:22px;cursor:pointer}.count{background:#d49a54;color:#17120e;border-radius:50%;font-size:11px;padding:3px 6px;vertical-align:top}
+.hero{margin:0 auto;min-height:390px;display:flex;align-items:center;padding:45px 8%;background:linear-gradient(90deg,#17100bdd,#17100e66),radial-gradient(circle at 75% 40%,#8b5a31,#20150d 55%,#0e0b09);color:white}
+.hero h1{font-size:clamp(34px,5vw,58px);margin:0 0 18px;max-width:650px}.hero p{font-size:18px;color:#eadfd2;max-width:570px;line-height:1.8}.btn{border:0;border-radius:12px;padding:13px 24px;background:#e6b873;color:#24170e;font-weight:800;cursor:pointer}
+.features{width:92%;max-width:1100px;margin:-35px auto 35px;background:#fffaf6;border-radius:20px;padding:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;box-shadow:0 8px 30px #00000010}
+.feature{text-align:center;padding:10px;border-left:1px solid #eadfd3}.feature:last-child{border:0}.feature b{display:block;margin:8px 0}.feature span{color:var(--muted);font-size:13px}
+section{width:92%;max-width:1200px;margin:35px auto}.section-title{display:flex;align-items:center;justify-content:space-between}.section-title h2{font-size:28px;border-bottom:3px solid var(--gold);padding-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.book{background:var(--card);border-radius:14px;padding:10px;box-shadow:0 3px 15px #0000000d}.cover{height:210px;border-radius:9px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:#f8eee2;font-size:20px;font-weight:800;background:linear-gradient(145deg,#294f5b,#111d21)}.book:nth-child(2n) .cover{background:linear-gradient(145deg,#6b4630,#24140d)}.book:nth-child(3n) .cover{background:linear-gradient(145deg,#66766b,#25352d)}.book h3{font-size:15px;margin:10px 0 5px}.author{font-size:12px;color:var(--muted)}.price{font-weight:800;margin:9px 0}.cart{width:100%;padding:9px;border:0;border-radius:9px;background:#f0d4ad;cursor:pointer;font-weight:700}
+.promo{border-radius:18px;padding:28px 7%;background:linear-gradient(90deg,#2b170c,#5a351e);color:white}.promo strong{color:#e8b56e}.promo code{background:#f1d09f;color:#28170d;padding:7px 10px;border-radius:7px;font-weight:800}
+#cartBox{position:fixed;inset:0 0 0 auto;width:min(390px,90vw);background:#fffaf4;z-index:30;padding:22px;box-shadow:-10px 0 30px #0003;transform:translateX(110%);transition:.3s;overflow:auto}#cartBox.open{transform:none}.cart-item{padding:12px 0;border-bottom:1px solid #eadfd3;display:flex;justify-content:space-between}.close{float:left;border:0;background:none;font-size:25px;cursor:pointer}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}.feature:nth-child(2){border:0}.hero{min-height:350px}}
+@media(max-width:600px){header{gap:9px;padding:12px 4%}.logo{font-size:20px}.search{width:45%;font-size:12px}.grid{grid-template-columns:repeat(2,1fr)}.cover{height:220px}.features{width:94%;margin-top:-20px}.hero{padding:35px 6%}.hero h1{font-size:34px}.hero p{font-size:15px}.feature{border:0}}
+</style>
+</head>
+<body>
+<header>
+<button class="icon" aria-label="القائمة">☰</button>
+<button class="icon" onclick="openCart()">🛒<span class="count" id="count">0</span></button>
+<div class="logo">رواية حكاية<small>Taleora</small></div>
+<input id="search" class="search" placeholder="ابحث عن رواية..." oninput="filterBooks()">
+</header>
+
+<div class="hero">
+<div>
+<h1>كل حكاية لها بداية...<br>وكل رواية لها عالم.</h1>
+<p>اكتشف روايات عربية وعالمية، واختر الحكاية التي تأخذك إلى عالم جديد.</p>
+<button class="btn" onclick="document.getElementById('new').scrollIntoView({behavior:'smooth'})">تصفح الروايات ←</button>
+</div>
+</div>
+
+<div class="features">
+<div class="feature">🚚<b>شحن سريع</b><span>لجميع المحافظات</span></div>
+<div class="feature">✓<b>جودة مضمونة</b><span>كتب أصلية 100%</span></div>
+<div class="feature">💳<b>دفع آمن</b><span>طرق دفع متعددة</span></div>
+<div class="feature">🎧<b>دعم 24/7</b><span>نحن هنا لمساعدتك</span></div>
+</div>
+
+<section id="new">
+<div class="section-title"><h2>وصل حديثاً</h2><span>عرض الكل ←</span></div>
+<div class="grid" id="bookGrid"></div>
+</section>
+
+<section>
+<div class="promo"><h2>خصم <strong>20%</strong> على الطلب الأول</h2><p>استخدم كود: <code>TALEORA20</code></p><button class="btn" onclick="document.getElementById('new').scrollIntoView({behavior:'smooth'})">تسوق الآن ←</button></div>
+</section>
+
+<section>
+<div class="section-title"><h2>الأكثر مبيعاً</h2></div>
+<div class="grid" id="bestGrid"></div>
+</section>
+
+<aside id="cartBox">
+<button class="close" onclick="closeCart()">×</button><h2>🛒 سلة المشتريات</h2>
+<div id="cartItems"></div><hr><h3>الإجمالي: <span id="total">0</span> جنيه</h3>
+<button class="btn" style="width:100%" onclick="alert('تم تجهيز الطلب تجريبياً ❤️')">إتمام الطلب</button>
+</aside>
+
+<script>
+const books=[
+["ألف شمس ساطعة","خالد حسيني",190],["خريف البراءة","أحمد مراد",200],
+["الرحلة","باسم خندقجي",170],["قواعد العشق الأربعون","إليف شافاق",210],
+["عندما يعزف الشيطان","منى الشاذلي",180],["ليلة لا تنتهي","محمد صادق",199],
+["1984","جورج أورويل",160],["مئة عام من العزلة","غابرييل غارسيا ماركيز",220],
+["الحصان الأسود","أحمد خالد توفيق",150],["الأمير الصغير","أنطوان دو سانت",140],
+["تذكرة إلى سرمد","أحمد مراد",190],["رجال في الشمس","غسان كنفاني",120]
+];
+let cart=[];
+function card(b){return `<article class="book"><div class="cover">${b[0]}</div><h3>${b[0]}</h3><div class="author">${b[1]}</div><div class="price">${b[2]} جنيه</div><button class="cart" onclick='add(${JSON.stringify(b)})'>أضف للسلة 🛒</button></article>`}
+function render(list=books){bookGrid.innerHTML=list.map(card).join("");bestGrid.innerHTML=books.slice(6).map(card).join("")}
+function filterBooks(){let q=search.value.trim().toLowerCase();render(books.filter(b=>b[0].toLowerCase().includes(q)||b[1].toLowerCase().includes(q)))}
+function add(b){cart.push(b);updateCart();openCart()}
+function updateCart(){count.textContent=cart.length;cartItems.innerHTML=cart.length?cart.map((b,i)=>`<div class="cart-item"><span>${b[0]}</span><b>${b[2]} ج</b></div>`).join(""):"<p>السلة فارغة حالياً.</p>";total.textContent=cart.reduce((s,b)=>s+b[2],0)}
+function openCart(){cartBox.classList.add("open")}function closeCart(){cartBox.classList.remove("open")}
+render();updateCart();
+</script>
+</body>
+</html>
