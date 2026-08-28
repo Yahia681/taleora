@@ -1,13 +1,9 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
 
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport"
+content="width=device-width,initial-scale=1">
 
-<title>Taleora | تفاصيل الرواية</title>
-
-<style>
+<title>Taleora | تفاصيل الرواية</title><style>
 
 :root{
   --bg:#100d0b;
@@ -17,83 +13,129 @@
   --text:#fff8ef;
   --muted:#b9aa9b;
   --line:#ffffff12;
-} 
+}
+
 *{
   box-sizing:border-box;
 }
 
 body{
   margin:0;
-  background:var(--bg);
+
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      #70452555,
+      transparent 35%
+    ),
+    var(--bg);
+
   color:var(--text);
-  font-family:Tahoma,Arial,sans-serif;
+
+  font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
+  min-height:100vh;
 }
+
 
 /* HEADER */
 
 header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:15px 6%;
-  border-bottom:1px solid var(--line);
-  background:#100d0bed;
   position:sticky;
+
   top:0;
-  z-index:10;
+
+  z-index:50;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:14px 6%;
+
+  background:#100d0bed;
+
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid var(--line);
 }
 
 .logo{
-  color:var(--gold2);
   font-size:23px;
+
   font-weight:900;
+
+  color:var(--gold2);
 }
 
 .logo small{
   display:block;
-  color:white;
+
   font-size:8px;
+
   letter-spacing:5px;
+
   text-align:center;
+
+  color:white;
 }
 
 .back{
   border:1px solid var(--line);
-  background:#ffffff08;
+
+  background:#ffffff0c;
+
   color:white;
-  padding:10px 16px;
+
+  padding:9px 15px;
+
   border-radius:10px;
+
   cursor:pointer;
 }
 
-/* BOOK PAGE */
 
-.book-page{
+/* MAIN */
+
+.container{
   width:90%;
-  max-width:1100px;
-  margin:60px auto;
+
+  max-width:1050px;
+
+  margin:55px auto 90px;
 }
 
+
+/* BOOK */
+
 .book-details{
+
   display:grid;
-  grid-template-columns:300px 1fr;
+
+  grid-template-columns:
+    320px
+    1fr;
+
   gap:45px;
+
   align-items:start;
 }
 
+
+/* COVER */
+
 .cover{
-  height:430px;
+
+  height:470px;
+
   border-radius:18px;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  text-align:center;
-  padding:25px;
-
-  font-size:25px;
-  font-weight:900;
+  overflow:hidden;
 
   background:
     radial-gradient(
@@ -102,55 +144,134 @@ header{
       #162329 65%
     );
 
-  border:1px solid #ffffff15;
+  border:1px solid var(--line);
+
+  box-shadow:
+    0 20px 50px #0008;
 }
 
-.info h1{
-  font-size:42px;
-  margin:0 0 15px;
+.cover img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+}
+
+
+/* INFO */
+
+.category{
+
+  display:inline-block;
+
+  color:var(--gold2);
+
+  border:1px solid #d9a45e55;
+
+  padding:7px 13px;
+
+  border-radius:30px;
+
+  font-size:12px;
+
+  margin-bottom:15px;
+}
+
+h1{
+
+  font-size:
+    clamp(
+      35px,
+      6vw,
+      55px
+    );
+
+  margin:
+    0 0 12px;
+
+  line-height:1.2;
 }
 
 .author{
-  color:var(--gold2);
-  font-size:16px;
-  margin-bottom:20px;
-}
 
-.category{
-  display:inline-block;
-  padding:7px 13px;
-  border-radius:20px;
-  background:#ffffff0c;
-  color:var(--gold2);
-  font-size:13px;
+  color:var(--muted);
+
+  font-size:15px;
+
   margin-bottom:25px;
 }
 
 .description{
-  color:var(--muted);
+
+  color:#d0c2b4;
+
   line-height:2;
+
   font-size:16px;
+
+  max-width:650px;
+}
+
+
+/* PRICE */
+
+.price-box{
+
+  margin-top:30px;
+
+  padding:20px;
+
+  background:var(--card);
+
+  border:1px solid var(--line);
+
+  border-radius:15px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:15px;
+
+  flex-wrap:wrap;
 }
 
 .price{
+
   color:var(--gold2);
+
   font-size:25px;
+
   font-weight:900;
-  margin:25px 0;
 }
 
+
+/* BUTTONS */
+
 .buttons{
+
   display:flex;
-  gap:12px;
+
+  gap:10px;
+
+  margin-top:20px;
+
   flex-wrap:wrap;
 }
 
 .btn{
+
   border:0;
+
   border-radius:11px;
-  padding:13px 24px;
-  cursor:pointer;
-  font-weight:900;
+
+  padding:13px 22px;
 
   background:
     linear-gradient(
@@ -160,376 +281,534 @@ header{
     );
 
   color:#24170d;
+
+  font-weight:900;
+
+  cursor:pointer;
 }
 
 .btn.secondary{
+
   background:#ffffff0c;
+
   color:white;
+
   border:1px solid var(--line);
 }
 
-.message{
-  margin-top:25px;
-  color:var(--gold2);
-  min-height:25px;
+
+/* EXTRA */
+
+.extra{
+
+  margin-top:55px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:15px;
 }
+
+.extra-card{
+
+  background:var(--card);
+
+  border:1px solid var(--line);
+
+  border-radius:15px;
+
+  padding:20px;
+
+  text-align:center;
+}
+
+.extra-card b{
+
+  display:block;
+
+  margin-bottom:8px;
+}
+
+.extra-card span{
+
+  color:var(--muted);
+
+  font-size:12px;
+}
+
 
 /* FOOTER */
 
 footer{
-  margin-top:100px;
-  padding:35px;
-  text-align:center;
+
   border-top:1px solid var(--line);
+
+  padding:30px;
+
+  text-align:center;
+
   color:var(--muted);
 }
 
+
 /* MOBILE */
 
-@media(max-width:700px){
+@media(max-width:750px){
 
   .book-details{
+
     grid-template-columns:1fr;
+
+    gap:30px;
+
   }
 
   .cover{
-    height:360px;
-    max-width:280px;
+
+    height:420px;
+
+    max-width:300px;
+
     margin:auto;
+
   }
 
-  .info h1{
-    font-size:31px;
+  .info{
+
+    text-align:center;
+
+  }
+
+  .description{
+
+    margin:auto;
+
+  }
+
+  .price-box{
+
+    justify-content:center;
+
+  }
+
+  .buttons{
+
+    justify-content:center;
+
+  }
+
+  .extra{
+
+    grid-template-columns:1fr;
+
   }
 
 }
 
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-
-<header>
-
-<div class="logo">
-
-رواية حكاية
+</style></head><body><header><div class="logo">رواية حكاية
 
 <small>
 TALEORA
-</small>
-
-</div>
-
-<button
+</small></div><button
 class="back"
 onclick="goHome()"
->
-← العودة للرئيسية
+
+«»
+
+← الرئيسية
 </button>
 
-</header>
+</header><main class="container"><div class="book-details"><!-- COVER --><div class="cover"><img
+id="bookCover"
+src="covers/book1.jpg"
+alt="غلاف الرواية"
 
+«»
 
-<!-- BOOK DETAILS -->
-
-<main class="book-page">
-
-<div class="book-details">
-
-<div
-class="cover"
-id="cover"
->
-جاري التحميل...
-</div>
-
-
-<div class="info">
-
-<h1 id="title">
-جاري التحميل...
-</h1>
-
-<div
-class="author"
-id="author"
->
-</div>
-
-<div
+</div><!-- INFO --><div class="info"><div
 class="category"
-id="category"
+id="bookCategory"
 >
-</div>
-
-<p
+رواية
+</div><h1
+id="bookTitle"
+>
+جاري تحميل الرواية...
+</h1><div
+class="author"
+id="bookAuthor"
+>
+</div><div
 class="description"
-id="description"
->
-</p>
+id="bookDescription"
+>اكتشف عالم الرواية وتعرّف على أحداثها
+وشخصياتها، ثم ابدأ رحلة القراءة داخل Taleora.
 
-<div
+</div><div class="price-box"><div><div
 class="price"
-id="price"
+id="bookPrice"
 >
-</div>
+0 ج
+</div><span
+style="color:#b9aa9b;font-size:11px"
 
-<div class="buttons">
+«»
 
-<button
+السعر التجريبي
+</span>
+
+</div><div class="buttons"><button
 class="btn"
 onclick="startReading()"
->
-📖 ابدأ القراءة
+
+«»
+
+📖 اقرأ الآن
 </button>
 
 <button
 class="btn secondary"
-onclick="addFavorite()"
->
-❤️ أضف للمفضلة
+onclick="addToFavorites()"
+
+«»
+
+❤️ المفضلة
 </button>
 
-</div>
+</div></div></div></div><!-- EXTRA --><div class="extra"><div class="extra-card">📚
 
-<div
-class="message"
-id="message"
->
-</div>
+<b>
+نوع الرواية
+</b><span id="extraCategory">
+رواية
+</span></div><div class="extra-card">✍️
 
-</div>
+<b>
+المؤلف
+</b><span id="extraAuthor">
+—
+</span></div><div class="extra-card">⭐
 
-</div>
-
-</main>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<strong style="color:#e8b56e">
+<b>
+تقييم Taleora
+</b><span>
+4.8 / 5
+</span></div></div></main><footer><strong style="color:#e8b56e">
 Taleora
-</strong>
-
-<br><br>
+</strong><br><br>
 
 عالمك بين صفحات الحكايات © 2026
 
-</footer>
+</footer><script>
 
-
-<script>
 
 /* =========================
    بيانات الروايات
 ========================= */
 
-const books = [
+const books={
 
-{
-id:1,
+
+1:{
+
 title:"ألف شمس ساطعة",
+
 author:"خالد حسيني",
+
 price:190,
+
 category:"رومانسية",
+
+cover:"covers/book1.jpg",
+
 description:
-"رواية إنسانية تدور حول حياة مليئة بالتحديات والعلاقات والاختيارات الصعبة."
+"حكاية تأخذك في رحلة مليئة بالمشاعر والتغيرات، وتضع الشخصيات أمام اختبارات صعبة."
+
 },
 
-{
-id:2,
+
+2:{
+
 title:"خريف البراءة",
+
 author:"أحمد مراد",
+
 price:200,
+
 category:"غموض",
+
+cover:"",
+
 description:
-"حكاية مليئة بالأسرار والأسئلة التي تقود القارئ لاكتشاف ما وراء الأحداث."
+"رواية مليئة بالأسرار والأسئلة التي تدفعك لاكتشاف الحقيقة خطوة بعد خطوة."
+
 },
 
-{
-id:3,
+
+3:{
+
 title:"الرحلة",
+
 author:"باسم خندقجي",
+
 price:170,
+
 category:"مغامرة",
+
+cover:"",
+
 description:
-"رحلة مليئة بالمفاجآت والاكتشافات، حيث تتغير الأحداث مع كل خطوة."
+"رحلة مليئة بالأحداث والمواقف التي تغيّر مسار الحكاية."
+
 },
 
-{
-id:4,
+
+4:{
+
 title:"قواعد العشق الأربعون",
+
 author:"إليف شافاق",
+
 price:210,
+
 category:"رومانسية",
+
+cover:"",
+
 description:
-"حكاية تجمع بين الحب والتغيير واكتشاف الذات."
+"حكاية تجمع بين الحب والفلسفة والبحث عن معنى مختلف للحياة."
+
 },
 
-{
-id:5,
+
+5:{
+
 title:"عندما يعزف الشيطان",
+
 author:"منى الشاذلي",
+
 price:180,
+
 category:"رعب",
+
+cover:"",
+
 description:
-"حكاية غامضة بأجواء مظلمة وأحداث تثير الفضول."
+"أحداث غامضة تأخذك إلى عالم مليء بالأسرار والتوتر."
+
 },
 
-{
-id:6,
+
+6:{
+
 title:"ليلة لا تنتهي",
+
 author:"محمد صادق",
+
 price:199,
+
 category:"غموض",
+
+cover:"",
+
 description:
-"ليلة استثنائية تبدأ بأحداث بسيطة ثم تتحول إلى سلسلة من الأسرار."
+"ليلة واحدة يمكن أن تغيّر الكثير، وكل إجابة تفتح بابًا لسؤال جديد."
+
 },
 
-{
-id:7,
+
+7:{
+
 title:"1984",
+
 author:"جورج أورويل",
+
 price:160,
+
 category:"كلاسيكيات",
+
+cover:"",
+
 description:
-"رواية كلاسيكية عن عالم تتحكم فيه السلطة والمراقبة بشكل واسع."
+"عمل كلاسيكي يناقش السلطة والمراقبة والمجتمع بطريقة مؤثرة."
+
 },
 
-{
-id:8,
+
+8:{
+
 title:"مئة عام من العزلة",
+
 author:"غابرييل غارسيا ماركيز",
+
 price:220,
+
 category:"كلاسيكيات",
+
+cover:"",
+
 description:
-"حكاية عائلة وأجيال متعاقبة في عالم مليء بالأحداث والخيال."
+"عالم أدبي واسع مليء بالشخصيات والأحداث والخيال."
+
 },
 
-{
-id:9,
+
+9:{
+
 title:"الحصان الأسود",
+
 author:"أحمد خالد توفيق",
+
 price:150,
+
 category:"غموض",
+
+cover:"",
+
 description:
-"قصة مليئة بالأفكار والأحداث الغامضة التي تدفعك لمتابعة النهاية."
+"حكاية غامضة تحمل الكثير من المفاجآت."
+
 },
 
-{
-id:10,
+
+10:{
+
 title:"الأمير الصغير",
+
 author:"أنطوان دو سانت",
+
 price:140,
+
 category:"فانتازيا",
+
+cover:"",
+
 description:
-"رحلة خيالية تحمل أفكارًا عن الحياة والصداقة والنظر إلى العالم."
+"رحلة خيالية تحمل أفكارًا بسيطة وعميقة في الوقت نفسه."
+
 },
 
-{
-id:11,
+
+11:{
+
 title:"تذكرة إلى سرمد",
+
 author:"أحمد مراد",
+
 price:190,
+
 category:"مغامرة",
+
+cover:"",
+
 description:
-"رحلة مختلفة تجمع بين المغامرة والأسرار."
+"مغامرة جديدة مليئة بالأسرار والأحداث المتسارعة."
+
 },
 
-{
-id:12,
+
+12:{
+
 title:"رجال في الشمس",
+
 author:"غسان كنفاني",
+
 price:120,
+
 category:"كلاسيكيات",
+
+cover:"",
+
 description:
-"رواية أدبية قصيرة تتناول رحلة مجموعة من الشخصيات وظروفها الصعبة."
+"عمل أدبي كلاسيكي يحمل قصة إنسانية مؤثرة."
+
 }
 
-];
+};
 
 
 /* =========================
-   قراءة ID من الرابط
+   قراءة ID
 ========================= */
 
-const params =
+const params=
 new URLSearchParams(
 window.location.search
 );
 
-const id =
-Number(params.get("id"));
-
-
-/* =========================
-   البحث عن الرواية
-========================= */
-
-const book =
-books.find(
-item => item.id === id
+const id=
+Number(
+params.get("id")
 );
 
 
 /* =========================
-   عرض الرواية
+   اختيار الرواية
 ========================= */
 
-if(book){
-
-document.getElementById("title")
-.textContent =
-book.title;
-
-document.getElementById("author")
-.textContent =
-"✍️ " + book.author;
-
-document.getElementById("category")
-.textContent =
-"📚 " + book.category;
-
-document.getElementById("description")
-.textContent =
-book.description;
-
-document.getElementById("price")
-.textContent =
-book.price + " جنيه";
-
-document.getElementById("cover")
-.textContent =
-book.title;
-
-}
-
-else{
-
-document.getElementById("title")
-.textContent =
-"الرواية غير موجودة";
-
-document.getElementById("description")
-.textContent =
-"لم نتمكن من العثور على الرواية المطلوبة.";
-
-}
+const book=
+books[id] || books[1];
 
 
 /* =========================
-   العودة للرئيسية
+   عرض البيانات
 ========================= */
 
-function goHome(){
+document.title=
+"Taleora | "+book.title;
 
-window.location.href =
-"index.html";
+
+document.getElementById("bookTitle")
+.textContent=
+book.title;
+
+
+document.getElementById("bookAuthor")
+.textContent=
+"✍️ "+book.author;
+
+
+document.getElementById("bookCategory")
+.textContent=
+book.category;
+
+
+document.getElementById("extraCategory")
+.textContent=
+book.category;
+
+
+document.getElementById("extraAuthor")
+.textContent=
+book.author;
+
+
+document.getElementById("bookPrice")
+.textContent=
+book.price+" ج";
+
+
+document.getElementById("bookDescription")
+.textContent=
+book.description;
+
+
+/* =========================
+   الغلاف
+========================= */
+
+if(book.cover){
+
+document.getElementById("bookCover")
+.src=
+book.cover;
+
+}else{
+
+document.getElementById("bookCover")
+.style.display="none";
 
 }
 
@@ -540,60 +819,57 @@ window.location.href =
 
 function startReading(){
 
-if(!book){
-return;
-}
-
-window.location.href =
-"reader.html?id=" + book.id;
+window.location.href=
+"reader.html?id="+id;
 
 }
 
 
 /* =========================
-   إضافة للمفضلة
+   المفضلة
 ========================= */
 
-function addFavorite(){
+function addToFavorites(){
 
-if(!book){
-return;
-}
-
-let favorites =
+let favorites=
 JSON.parse(
-localStorage.getItem("favorites")
-) || [];
+localStorage.getItem("taleoraFavorites")
+)||[];
 
 
-if(
-!favorites.includes(book.id)
-){
+if(!favorites.includes(id)){
 
-favorites.push(book.id);
+favorites.push(id);
 
 localStorage.setItem(
-"favorites",
+"taleoraFavorites",
 JSON.stringify(favorites)
 );
 
-document.getElementById("message")
-.textContent =
-"❤️ تمت إضافة الرواية إلى المفضلة";
+alert(
+"تمت إضافة الرواية إلى المفضلة ❤️"
+);
+
+}else{
+
+alert(
+"الرواية موجودة بالفعل في المفضلة ❤️"
+);
 
 }
 
-else{
+}
 
-document.getElementById("message")
-.textContent =
-"الرواية موجودة بالفعل في المفضلة ❤️";
+
+/* =========================
+   الرئيسية
+========================= */
+
+function goHome(){
+
+window.location.href=
+"index.html";
 
 }
 
-}
-
-</script>
-
-</body>
-</html>
+</script></body></html>
