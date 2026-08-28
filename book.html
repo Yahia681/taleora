@@ -125,6 +125,55 @@ button{
   border-radius:18px;
 }
 
+.reader{
+  margin-top:55px;
+  padding:30px;
+  background:#f8f1e7;
+  color:#2a2019;
+  border-radius:20px;
+  box-shadow:0 15px 45px #0005;
+}
+
+.reader-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:center;
+  border-bottom:1px solid #d9cbbb;
+  padding-bottom:18px;
+}
+
+.reader-top span{color:#76695d;font-size:13px}
+
+.reader h2{margin:0;color:#4d2f1c}
+
+.chapter{
+  max-width:760px;
+  margin:35px auto 0;
+}
+
+.chapter h3{
+  text-align:center;
+  font-size:27px;
+  color:#4d2f1c;
+}
+
+.chapter p{
+  font-size:18px;
+  line-height:2.2;
+  margin:22px 0;
+}
+
+.reader-note{
+  margin-top:25px;
+  padding:14px;
+  background:#eadbc8;
+  border-radius:10px;
+  color:#66584c;
+  font-size:13px;
+  line-height:1.8;
+}
+
 .info h2{
   margin-top:0;
   color:#f0c982;
@@ -172,10 +221,20 @@ onclick="favorite()">
 هذه صفحة تجريبية لتفاصيل الرواية في Taleora.
 يمكننا لاحقًا إضافة الفصول، التعليقات، التقييمات،
 وآخر فصل قرأه المستخدم.
-</p></div></main><script>
+</p></div><div class="reader" id="reader"><div class="reader-top">
+<h2>📖 القراءة</h2>
+<span>تجربة القراءة في Taleora</span>
+</div><div class="chapter"><h3>الفصل الأول</h3><p>
+في مساء هادئ، بدأت الحكاية من مكان صغير لم يكن أحد يتوقع أن يحمل كل هذا القدر من الأسرار. كانت الصفحات تنتظر من يفتحها، وكأنها تدعو القارئ إلى عالم جديد.
+</p><p>
+ومع كل خطوة، ظهرت تفاصيل جديدة تغيّر معنى الأشياء من حوله. لم تكن الرحلة مجرد بحث عن إجابة، بل كانت بداية لاكتشاف حكاية أكبر.
+</p><div class="reader-note">
+هذا نص تجريبي أصلي للواجهة فقط. عند إضافة روايات حقيقية إلى Taleora، استخدم نصوصًا تملك حق نشرها أو حصلت على إذن لاستخدامها.
+</div></div>
+</div></main><script>
 
 function startReading(){
-  alert("قسم القراءة قادم في الخطوة القادمة 📖");
+  document.getElementById("reader").scrollIntoView({behavior:"smooth"});
 }
 
 function favorite(){
