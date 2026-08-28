@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>Taleora | القراءة</title>
+
+<style>
+
+:root{
+  --bg:#100d0b;
+  --card:#191411;
+  --gold:#d9a45e;
+  --gold2:#f0c982;
+  --text:#fff8ef;
+  --muted:#b9aa9b;
+  --line:#ffffff12;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:14px 6%;
+
+  background:#100d0bed;
+
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid var(--line);
+}
+
+.logo{
+  color:var(--gold2);
+  font-size:23px;
+  font-weight:900;
+}
+
+.logo small{
+  display:block;
+  color:white;
+  font-size:8px;
+  letter-spacing:5px;
+  text-align:center;
+}
+
+.back{
+  background:#ffffff0b;
+  border:1px solid var(--line);
+  color:white;
+
+  padding:10px 16px;
+
+  border-radius:10px;
+
+  cursor:pointer;
+}
+
+/* READER */
+
+.reader{
+  width:90%;
+  max-width:850px;
+
+  margin:55px auto 100px;
+}
+
+.book-title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.book-title h1{
+  font-size:38px;
+  margin:0 0 12px;
+}
+
+.book-title p{
+  color:var(--muted);
+  margin:0;
+}
+
+.content{
+  background:var(--card);
+
+  border:1px solid var(--line);
+
+  border-radius:20px;
+
+  padding:35px 40px;
+
+  box-shadow:0 20px 50px #0005;
+}
+
+.chapter{
+  color:var(--gold2);
+
+  text-align:center;
+
+  margin-bottom:30px;
+
+  font-size:22px;
+}
+
+.content p{
+  color:#eee3d8;
+
+  font-size:18px;
+
+  line-height:2.2;
+
+  margin:0 0 25px;
+}
+
+.next{
+  display:flex;
+
+  justify-content:center;
+
+  margin-top:35px;
+}
+
+.btn{
+  border:0;
+
+  border-radius:11px;
+
+  padding:13px 25px;
+
+  cursor:pointer;
+
+  font-weight:900;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold2),
+      var(--gold)
+    );
+
+  color:#24170d;
+}
+
+.message{
+  text-align:center;
+
+  color:var(--gold2);
+
+  margin-top:25px;
+
+  min-height:25px;
+}
+
+footer{
+  padding:35px;
+
+  text-align:center;
+
+  border-top:1px solid var(--line);
+
+  color:var(--muted);
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .book-title h1{
+    font-size:29px;
+  }
+
+  .content{
+    padding:25px 20px;
+  }
+
+  .content p{
+    font-size:16px;
+    line-height:2;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<div class="logo">
+
+رواية حكاية
+
+<small>
+TALEORA
+</small>
+
+</div>
+
+<button
+class="back"
+onclick="goBack()"
+>
+
+← تفاصيل الرواية
+
+</button>
+
+</header>
+
+
+<main class="reader">
+
+
+<div class="book-title">
+
+<h1 id="title">
+جاري تحميل الرواية...
+</h1>
+
+<p id="author">
