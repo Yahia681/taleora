@@ -1,9 +1,8 @@
 <!doctype html>
 
-<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport"
-content="width=device-width,initial-scale=1">
-
-<title>Taleora | عالمك بين صفحات الحكايات</title><style>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Taleora | عالمك بين صفحات الحكايات</title><style>
 
 :root{
   --bg:#100d0b;
@@ -40,13 +39,11 @@ header{
 
   display:flex;
   align-items:center;
-
   gap:15px;
 
   padding:14px 5%;
 
   background:#100d0bed;
-
   backdrop-filter:blur(14px);
 
   border-bottom:1px solid var(--line);
@@ -69,19 +66,15 @@ header{
 
 .search{
   flex:1;
-
   max-width:450px;
-
   margin-right:auto;
 
   background:#ffffff09;
-
   border:1px solid #ffffff18;
 
   color:white;
 
   border-radius:30px;
-
   padding:12px 18px;
 
   outline:none;
@@ -110,23 +103,19 @@ header{
   padding:70px 8%;
 
   position:relative;
-
   overflow:hidden;
 
   background:
-
     radial-gradient(
       circle at 75% 35%,
       #70452588,
       transparent 35%
     ),
-
     radial-gradient(
       circle at 20% 80%,
       #4b291788,
       transparent 35%
     ),
-
     linear-gradient(
       120deg,
       #100d0b,
@@ -135,27 +124,9 @@ header{
     );
 }
 
-.hero:after{
-  content:"";
-
-  position:absolute;
-
-  width:420px;
-  height:420px;
-
-  border:1px solid #d9a45e22;
-
-  border-radius:50%;
-
-  left:-150px;
-  bottom:-180px;
-}
-
 .hero-content{
   max-width:720px;
-
   position:relative;
-
   z-index:2;
 }
 
@@ -177,9 +148,7 @@ header{
 
 .hero h1{
   font-size:clamp(40px,6vw,70px);
-
   line-height:1.15;
-
   margin:0 0 20px;
 }
 
@@ -191,7 +160,6 @@ header{
   color:var(--muted);
 
   font-size:17px;
-
   line-height:2;
 
   max-width:620px;
@@ -199,9 +167,7 @@ header{
 
 .buttons{
   display:flex;
-
   gap:12px;
-
   margin-top:28px;
 }
 
@@ -228,9 +194,7 @@ header{
 
 .btn.secondary{
   background:#ffffff0d;
-
   color:white;
-
   border:1px solid #ffffff18;
 }
 
@@ -238,33 +202,30 @@ header{
 
 .features{
   width:90%;
-
   max-width:1100px;
 
   margin:-45px auto 55px;
 
   position:relative;
-
   z-index:5;
 
   background:#191411;
 
   border:1px solid var(--line);
-
   border-radius:20px;
 
   padding:22px;
 
   display:grid;
 
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:
+    repeat(4,1fr);
 
   gap:10px;
 }
 
 .feature{
   text-align:center;
-
   padding:10px;
 
   border-left:1px solid var(--line);
@@ -276,13 +237,11 @@ header{
 
 .feature b{
   display:block;
-
   margin:8px 0;
 }
 
 .feature span{
   color:var(--muted);
-
   font-size:12px;
 }
 
@@ -290,7 +249,6 @@ header{
 
 section{
   width:90%;
-
   max-width:1200px;
 
   margin:55px auto;
@@ -300,7 +258,6 @@ section{
   display:flex;
 
   justify-content:space-between;
-
   align-items:center;
 
   margin-bottom:22px;
@@ -308,7 +265,6 @@ section{
 
 .section-title h2{
   font-size:27px;
-
   margin:0;
 }
 
@@ -318,7 +274,6 @@ section{
   display:block;
 
   width:55px;
-
   height:3px;
 
   background:var(--gold);
@@ -326,19 +281,10 @@ section{
   margin-top:9px;
 }
 
-.section-title span{
-  color:var(--gold2);
-
-  cursor:pointer;
-
-  font-size:13px;
-}
-
 /* CATEGORIES */
 
 .categories{
   display:flex;
-
   gap:12px;
 
   overflow:auto;
@@ -364,7 +310,6 @@ section{
 
 .category:hover{
   border-color:#d9a45e66;
-
   color:var(--gold2);
 }
 
@@ -373,7 +318,8 @@ section{
 .grid{
   display:grid;
 
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:
+    repeat(6,1fr);
 
   gap:15px;
 }
@@ -408,7 +354,6 @@ section{
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
@@ -431,32 +376,11 @@ section{
 
 .cover img{
   width:100%;
-
   height:100%;
 
   object-fit:cover;
 
-  border-radius:10px;
-
   display:block;
-}
-
-.book:nth-child(2n) .cover{
-  background:
-    radial-gradient(
-      circle at 70% 20%,
-      #9a6039,
-      #29150d 65%
-    );
-}
-
-.book:nth-child(3n) .cover{
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      #697b6d,
-      #18251e 65%
-    );
 }
 
 .book h3{
@@ -467,7 +391,6 @@ section{
 
 .author{
   color:var(--muted);
-
   font-size:11px;
 }
 
@@ -483,7 +406,6 @@ section{
 
 .price{
   font-weight:900;
-
   color:var(--gold2);
 }
 
@@ -513,13 +435,11 @@ section{
   border-radius:22px;
 
   background:
-
     radial-gradient(
       circle at 80% 20%,
       #8b5a3166,
       transparent 35%
     ),
-
     linear-gradient(
       110deg,
       #28160b,
@@ -531,7 +451,6 @@ section{
 
 .promo h2{
   margin-top:0;
-
   font-size:28px;
 }
 
@@ -612,11 +531,13 @@ footer{
 @media(max-width:950px){
 
   .grid{
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+      repeat(3,1fr);
   }
 
   .features{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
 }
@@ -625,7 +546,6 @@ footer{
 
   header{
     padding:11px 4%;
-
     gap:8px;
   }
 
@@ -639,15 +559,12 @@ footer{
 
   .search{
     max-width:none;
-
     width:35%;
-
     font-size:11px;
   }
 
   .hero{
     min-height:520px;
-
     padding:55px 7%;
   }
 
@@ -665,12 +582,12 @@ footer{
 
   .features{
     width:94%;
-
     margin-top:-25px;
   }
 
   .grid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .cover{
@@ -711,14 +628,7 @@ onclick="openCart()"
 «»
 
 🛒
-<span
-id="count"
-class="count"
-
-«»
-
-0
-</span>
+<span id="count">0</span>
 </button>
 
 </header><!-- HERO --><div class="hero"><div class="hero-content"><div class="badge">
@@ -727,9 +637,9 @@ class="count"
 
 <br><span>
 وكل رواية لها عالم.
-</span></h1><p>
-اكتشف عوالم من الخيال والغموض والمغامرة.
+</span></h1><p>اكتشف عوالم من الخيال والغموض والمغامرة.
 اقرأ، اكتشف، واحفظ حكاياتك المفضلة في Taleora.
+
 </p><div class="buttons"><button
 class="btn"
 onclick="document.getElementById('new').scrollIntoView()"
@@ -806,18 +716,29 @@ onclick="categoryFilter('كلاسيكيات')"
 📜 كلاسيكيات
 </div></div></section><!-- NEW BOOKS --><section id="new"><div class="section-title"><h2>
 وصل حديثاً
-</h2><span onclick="showAll()">
+</h2><span
+onclick="showAll()"
+style="color:var(--gold2);cursor:pointer"
+
+«»
+
 عرض الكل ←
-</span></div><div
+</span>
+
+</div><div
 class="grid"
 id="bookGrid"
 >
-</div></section><!-- PROMO --><section><div class="promo"><h2>
-خصم <strong>20%</strong> على أول طلب
-</h2><p>
-استخدم الكود:
-<strong>TALEORA20</strong>
-</p><button
+</div></section><!-- PROMO --><section><div class="promo"><h2>خصم
+<strong>20%</strong>
+
+على أول طلب
+
+</h2><p>استخدم الكود:
+
+<strong>
+TALEORA20
+</strong></p><button
 class="btn"
 onclick="document.getElementById('new').scrollIntoView()"
 
@@ -869,7 +790,7 @@ onclick="checkout()"
 </aside><script>
 
 /* =========================
-   بيانات الروايات
+   الكتب
 ========================= */
 
 const books=[
@@ -993,12 +914,12 @@ let cart=[];
 
 
 /* =========================
-   كارت الرواية
+   إنشاء كارت
 ========================= */
 
 function card(book){
 
-let coverHTML=
+let cover=
 
 book.cover
 
@@ -1013,7 +934,11 @@ alt="${book.title}"
 
 :
 
-book.title;
+`
+<div>
+${book.title}
+</div>
+`;
 
 
 return `
@@ -1022,7 +947,7 @@ return `
 
 <div class="cover">
 
-${coverHTML}
+${cover}
 
 </div>
 
@@ -1066,9 +991,11 @@ document.getElementById("bookGrid")
 .innerHTML=
 list.map(card).join("");
 
+
 document.getElementById("bestGrid")
 .innerHTML=
-books.slice(4,10)
+books
+.slice(4,10)
 .map(card)
 .join("");
 
@@ -1076,7 +1003,7 @@ books.slice(4,10)
 
 
 /* =========================
-   فتح الرواية
+   فتح صفحة الكتاب
 ========================= */
 
 function openBook(id){
@@ -1099,6 +1026,7 @@ document.getElementById("search")
 .trim()
 .toLowerCase();
 
+
 let result=
 books.filter(book=>
 
@@ -1114,13 +1042,14 @@ book.author
 
 );
 
+
 render(result);
 
 }
 
 
 /* =========================
-   التصنيف
+   التصنيفات
 ========================= */
 
 function categoryFilter(category){
@@ -1160,7 +1089,7 @@ behavior:"smooth"
 
 
 /* =========================
-   إضافة للسلة
+   السلة
 ========================= */
 
 function add(book){
@@ -1173,10 +1102,6 @@ openCart();
 
 }
 
-
-/* =========================
-   تحديث السلة
-========================= */
 
 function updateCart(){
 
@@ -1224,10 +1149,6 @@ cart.reduce(
 }
 
 
-/* =========================
-   فتح السلة
-========================= */
-
 function openCart(){
 
 document.getElementById("cartBox")
@@ -1235,10 +1156,6 @@ document.getElementById("cartBox")
 
 }
 
-
-/* =========================
-   غلق السلة
-========================= */
 
 function closeCart(){
 
@@ -1248,15 +1165,13 @@ document.getElementById("cartBox")
 }
 
 
-/* =========================
-   إتمام الطلب
-========================= */
-
 function checkout(){
 
 if(cart.length===0){
 
-alert("السلة فارغة حالياً.");
+alert(
+"السلة فارغة حالياً."
+);
 
 return;
 
@@ -1269,21 +1184,11 @@ alert(
 }
 
 
-/* =========================
-   تشغيل الموقع
-========================= */
+/* تشغيل */
 
 render();
 
 updateCart();
 
-</script></body></html>
-```بعد ما تلصقه
-
-1. اضغط Commit changes.
-2. افتح موقع Taleora.
-3. اعمل Refresh.
-4. أول رواية ألف شمس ساطعة المفروض يظهر عليها "book1.jpg".
-5. اضغط اقرأ الآن وجرب إن صفحة الكتاب تفتح.
-
-مهم: باقي الروايات هتفضل بخلفيات مؤقتة لحد ما نرفع أغلفتها. ومتغيرش "book.html" أو "reader.html" دلوقتي.
+</script></body>
+</html>
