@@ -170,7 +170,15 @@ footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;bor
   <button class="close-btn" onclick="toggleCart()">×</button>
   <h2 style="margin-top:0;">سلة المشتريات</h2>
   <div id="cartItemsList" style="margin-top:15px;"></div>
-  <div style="margin-top:20px;border-top:1px solid var(--line);padding-top:15px;">
+  
+  <!-- حقول إدخال بيانات العميل -->
+  <div style="margin-top:15px;border-top:1px solid var(--line);padding-top:15px;display:flex;flex-direction:column;gap:10px;">
+    <input type="text" id="custName" placeholder="الاسم الكريم" class="search" style="border-radius:8px;font-size:12px;padding:8px 12px;width:100%;max-width:100%;">
+    <input type="tel" id="custPhone" placeholder="رقم الموبايل" class="search" style="border-radius:8px;font-size:12px;padding:8px 12px;width:100%;max-width:100%;">
+    <textarea id="custAddress" placeholder="العنوان بالتفصيل (المحافظة، المنطقة، الشارع)" class="search" style="border-radius:8px;font-size:12px;padding:8px 12px;width:100%;max-width:100%;resize:none;height:65px;font-family:Tahoma;"></textarea>
+  </div>
+
+  <div style="margin-top:15px;border-top:1px solid var(--line);padding-top:15px;">
     <div style="display:flex;justify-content:space-between;font-size:16px;margin-bottom:15px;">
       <span>الإجمالي:</span>
       <b style="color:var(--gold2);" id="totalPrice">0 جنيه</b>
@@ -277,8 +285,22 @@ function updateCartUI() {
 
 function checkout() {
   if (cart.length === 0) return alert("السلة فارغة!");
-  alert("تم إتمام طلبك بنجاح! شكراً لاختيارك Taleora ❤️");
+
+  let name = document.getElementById("custName").value.trim();
+  let phone = document.getElementById("custPhone").value.trim();
+  let address = document.getElementById("custAddress").value.trim();
+
+  if (!name || !phone || !address) {
+    return alert("يرجى إدخال (الاسم، رقم الموبايل، والعنوان) لإتمام الطلب بنجاح.");
+  }
+
+  alert(`شكراً لك يا ${name} ❤️\nتم استلام طلبك بنجاح وسنتواصل معك قريباً على الرقم (${phone}) لتأكيد الشحن.`);
+
   cart = [];
+  document.getElementById("custName").value = "";
+  document.getElementById("custPhone").value = "";
+  document.getElementById("custAddress").value = "";
+
   updateCartUI();
   toggleCart();
 }
@@ -318,4 +340,3 @@ updateCartUI();
 </script>
 </body>
 </html>
-
