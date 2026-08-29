@@ -1,9 +1,10 @@
 <!doctype html>
-
-<html lang="ar" dir="rtl"><head>
+<html lang="ar" dir="rtl">
+<head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Taleora | عالمك بين صفحات الحكايات</title><style>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Taleora | عالمك بين صفحات الحكايات</title>
+<style>
 :root{
   --bg:#100d0b;
   --card:#191411;
@@ -31,21 +32,16 @@ body{
 }
 
 /* HEADER */
-
 header{
   position:sticky;
   top:0;
   z-index:50;
-
   display:flex;
   align-items:center;
   gap:15px;
-
   padding:14px 5%;
-
   background:#100d0bed;
   backdrop-filter:blur(14px);
-
   border-bottom:1px solid var(--line);
 }
 
@@ -54,6 +50,7 @@ header{
   font-weight:900;
   color:var(--gold2);
   white-space:nowrap;
+  cursor: pointer;
 }
 
 .logo small{
@@ -68,15 +65,11 @@ header{
   flex:1;
   max-width:450px;
   margin-right:auto;
-
   background:#ffffff09;
   border:1px solid #ffffff18;
-
   color:white;
-
   border-radius:30px;
   padding:12px 18px;
-
   outline:none;
 }
 
@@ -90,38 +83,33 @@ header{
   color:white;
   font-size:21px;
   cursor:pointer;
+  position: relative;
+}
+
+#count {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: var(--gold);
+  color: #000;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
 }
 
 /* HERO */
-
 .hero{
   min-height:570px;
-
   display:flex;
   align-items:center;
-
   padding:70px 8%;
-
   position:relative;
   overflow:hidden;
-
   background:
-    radial-gradient(
-      circle at 75% 35%,
-      #70452588,
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 20% 80%,
-      #4b291788,
-      transparent 35%
-    ),
-    linear-gradient(
-      120deg,
-      #100d0b,
-      #25170e 55%,
-      #0e0b09
-    );
+    radial-gradient(circle at 75% 35%, #70452588, transparent 35%),
+    radial-gradient(circle at 20% 80%, #4b291788, transparent 35%),
+    linear-gradient(120deg, #100d0b, #25170e 55%, #0e0b09);
 }
 
 .hero-content{
@@ -132,17 +120,11 @@ header{
 
 .badge{
   display:inline-block;
-
   padding:8px 14px;
-
   border:1px solid #d9a45e55;
-
   color:var(--gold2);
-
   border-radius:30px;
-
   margin-bottom:20px;
-
   font-size:13px;
 }
 
@@ -158,10 +140,8 @@ header{
 
 .hero p{
   color:var(--muted);
-
   font-size:17px;
   line-height:2;
-
   max-width:620px;
 }
 
@@ -173,22 +153,11 @@ header{
 
 .btn{
   border:0;
-
   border-radius:12px;
-
   padding:13px 24px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold2),
-      var(--gold)
-    );
-
+  background:linear-gradient(135deg, var(--gold2), var(--gold));
   color:#24170d;
-
   font-weight:900;
-
   cursor:pointer;
 }
 
@@ -199,35 +168,24 @@ header{
 }
 
 /* FEATURES */
-
 .features{
   width:90%;
   max-width:1100px;
-
   margin:-45px auto 55px;
-
   position:relative;
   z-index:5;
-
   background:#191411;
-
   border:1px solid var(--line);
   border-radius:20px;
-
   padding:22px;
-
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:10px;
 }
 
 .feature{
   text-align:center;
   padding:10px;
-
   border-left:1px solid var(--line);
 }
 
@@ -246,20 +204,16 @@ header{
 }
 
 /* SECTIONS */
-
 section{
   width:90%;
   max-width:1200px;
-
   margin:55px auto;
 }
 
 .section-title{
   display:flex;
-
   justify-content:space-between;
   align-items:center;
-
   margin-bottom:22px;
 }
 
@@ -270,42 +224,30 @@ section{
 
 .section-title h2:after{
   content:"";
-
   display:block;
-
   width:55px;
   height:3px;
-
   background:var(--gold);
-
   margin-top:9px;
 }
 
 /* CATEGORIES */
-
 .categories{
   display:flex;
   gap:12px;
-
   overflow:auto;
-
   padding-bottom:5px;
 }
 
 .category{
   flex:0 0 auto;
-
   background:var(--card);
-
   border:1px solid var(--line);
-
   padding:13px 20px;
-
   border-radius:30px;
-
   cursor:pointer;
-
   color:#ddd;
+  transition: .2s;
 }
 
 .category:hover{
@@ -314,78 +256,50 @@ section{
 }
 
 /* BOOK GRID */
-
 .grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(6,1fr);
-
+  grid-template-columns:repeat(6,1fr);
   gap:15px;
 }
 
 .book{
   background:var(--card);
-
   border:1px solid var(--line);
-
   border-radius:15px;
-
   padding:10px;
-
   transition:.25s;
 }
 
 .book:hover{
   transform:translateY(-5px);
-
   border-color:#d9a45e55;
 }
 
 /* COVER */
-
 .cover{
   height:225px;
-
   border-radius:10px;
-
   overflow:hidden;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
-
   text-align:center;
-
   padding:15px;
-
   color:#fff8ef;
-
-  font-size:19px;
-
+  font-size:16px;
   font-weight:900;
-
-  background:
-    radial-gradient(
-      circle at 30% 20%,
-      #52717c,
-      #162329 65%
-    );
+  background:radial-gradient(circle at 30% 20%, #52717c, #162329 65%);
 }
 
 .cover img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   display:block;
 }
 
 .book h3{
   font-size:14px;
-
   margin:11px 0 5px;
 }
 
@@ -396,56 +310,39 @@ section{
 
 .book-bottom{
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
-
   margin-top:10px;
 }
 
 .price{
   font-weight:900;
   color:var(--gold2);
+  font-size: 13px;
 }
 
 .read{
   border:0;
-
-  background:#ffffff0c;
-
-  color:white;
-
-  padding:7px 9px;
-
+  background:var(--gold);
+  color:#100d0b;
+  padding:7px 10px;
   border-radius:8px;
-
   cursor:pointer;
+  font-weight: bold;
+  font-size: 11px;
 }
 
 .read:hover{
-  background:#ffffff18;
+  background:var(--gold2);
 }
 
 /* PROMO */
-
 .promo{
   padding:35px 7%;
-
   border-radius:22px;
-
   background:
-    radial-gradient(
-      circle at 80% 20%,
-      #8b5a3166,
-      transparent 35%
-    ),
-    linear-gradient(
-      110deg,
-      #28160b,
-      #56351d
-    );
-
+    radial-gradient(circle at 80% 20%, #8b5a3166, transparent 35%),
+    linear-gradient(110deg, #28160b, #56351d);
   border:1px solid #d9a45e22;
 }
 
@@ -459,40 +356,25 @@ section{
 }
 
 /* FOOTER */
-
 footer{
   margin-top:80px;
-
   padding:35px 5%;
-
   border-top:1px solid var(--line);
-
   text-align:center;
-
   color:var(--muted);
 }
 
 /* CART */
-
 #cartBox{
   position:fixed;
-
   inset:0 0 0 auto;
-
   width:min(390px,90vw);
-
   background:#17120f;
-
   z-index:100;
-
   padding:22px;
-
   box-shadow:-10px 0 35px #0008;
-
   transform:translateX(110%);
-
   transition:.3s;
-
   overflow:auto;
 }
 
@@ -502,692 +384,308 @@ footer{
 
 .cart-item{
   padding:13px 0;
-
   border-bottom:1px solid var(--line);
-
   display:flex;
-
   justify-content:space-between;
-
   gap:10px;
 }
 
 .close{
   float:left;
-
   background:none;
-
   color:white;
-
   border:0;
-
   font-size:27px;
-
   cursor:pointer;
 }
 
 /* MOBILE */
-
 @media(max-width:950px){
-
   .grid{
-    grid-template-columns:
-      repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
-
   .features{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
-
 }
 
 @media(max-width:600px){
-
   header{
     padding:11px 4%;
     gap:8px;
   }
-
   .logo{
-    font-size:18px;
+    font-size:16px;
   }
-
   .logo small{
-    font-size:7px;
+    font-size:6px;
   }
-
   .search{
     max-width:none;
-    width:35%;
+    width:40%;
     font-size:11px;
+    padding:8px 12px;
   }
-
   .hero{
     min-height:520px;
     padding:55px 7%;
   }
-
   .hero h1{
-    font-size:38px;
+    font-size:32px;
   }
-
   .hero p{
     font-size:14px;
   }
-
   .buttons{
     flex-wrap:wrap;
   }
-
   .features{
     width:94%;
     margin-top:-25px;
   }
-
   .grid{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
-
   .cover{
-    height:210px;
+    height:180px;
   }
-
   section{
     width:94%;
   }
-
 }
+</style>
+</head>
+<body>
 
-</style></head><body><!-- HEADER --><header><button
-class="icon"
-onclick="window.scrollTo({top:0,behavior:'smooth'})"
+<!-- HEADER -->
+<header>
+  <button class="icon" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="الأعلى">☰</button>
+  <div class="logo" onclick="showAll()">رواية حكاية<small>TALEORA</small></div>
+  <input id="search" class="search" placeholder="ابحث عن رواية أو مؤلف..." oninput="filterBooks()">
+  <button class="icon" onclick="openCart()" title="السلة">🛒<span id="count">0</span></button>
+</header>
 
-«»
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="badge">✦ عالم جديد يبدأ من صفحة</div>
+    <h1>كل حكاية لها بداية...<br><span>وكل رواية لها عالم.</span></h1>
+    <p>اكتشف عوالم من الخيال والغموض والمغامرة. اقرأ، اكتشف، واحفظ حكاياتك المفضلة في Taleora.</p>
+    <div class="buttons">
+      <button class="btn" onclick="document.getElementById('new').scrollIntoView()">ابدأ القراءة ←</button>
+      <button class="btn secondary" onclick="document.getElementById('categories').scrollIntoView()">استكشف التصنيفات</button>
+    </div>
+  </div>
+</div>
 
-☰
-</button>
+<!-- FEATURES -->
+<div class="features">
+  <div class="feature">📚<b>مكتبة متنوعة</b><span>حكايات لكل ذوق</span></div>
+  <div class="feature">⭐<b>الأكثر قراءة</b><span>اكتشف المفضلة</span></div>
+  <div class="feature">❤️<b>مفضلاتك</b><span>احتفظ بحكاياتك</span></div>
+  <div class="feature">📱<b>تجربة مريحة</b><span>مصممة للموبايل</span></div>
+</div>
 
-<div class="logo">رواية حكاية
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="section-title"><h2>استكشف التصنيفات</h2></div>
+  <div class="categories">
+    <div class="category" onclick="categoryFilter('رعب')">👻 رعب</div>
+    <div class="category" onclick="categoryFilter('غموض')">🔎 غموض</div>
+    <div class="category" onclick="categoryFilter('رومانسية')">❤️ رومانسية</div>
+    <div class="category" onclick="categoryFilter('فانتازيا')">🧙 فانتازيا</div>
+    <div class="category" onclick="categoryFilter('مغامرة')">🗺️ مغامرة</div>
+    <div class="category" onclick="categoryFilter('كلاسيكيات')">📜 كلاسيكيات</div>
+  </div>
+</section>
 
-<small>
-TALEORA
-</small></div><input
-id="search"
-class="search"
-placeholder="ابحث عن رواية..."
-oninput="filterBooks()"
+<!-- NEW BOOKS -->
+<section id="new">
+  <div class="section-title">
+    <h2>وصل حديثاً</h2>
+    <span onclick="showAll()" style="color:var(--gold2);cursor:pointer;font-size:14px;">عرض الكل ←</span>
+  </div>
+  <div class="grid" id="bookGrid"></div>
+</section>
 
-«»
+<!-- PROMO -->
+<section>
+  <div class="promo">
+    <h2>خصم <strong>20%</strong> على أول طلب</h2>
+    <p>استخدم الكود: <strong>TALEORA20</strong></p>
+    <button class="btn" onclick="document.getElementById('new').scrollIntoView()">اكتشف الروايات ←</button>
+  </div>
+</section>
 
-<button
-class="icon"
-onclick="openCart()"
+<!-- BEST -->
+<section>
+  <div class="section-title"><h2>الأكثر قراءة ⭐</h2></div>
+  <div class="grid" id="bestGrid"></div>
+</section>
 
-«»
+<!-- FOOTER -->
+<footer>
+  <strong style="color:#e8b56e">Taleora</strong><br><br>
+  عالمك بين صفحات الحكايات © 2026
+</footer>
 
-🛒
-<span id="count">0</span>
-</button>
+<!-- CART -->
+<aside id="cartBox">
+  <button class="close" onclick="closeCart()">×</button>
+  <h2>🛒 سلة المشتريات</h2>
+  <div id="cartItems"></div>
+  <hr style="border: 0; border-top: 1px solid var(--line); margin: 15px 0;">
+  <h3>الإجمالي: <span id="total">0</span> جنيه</h3>
+  <button class="btn" style="width:100%; margin-top: 15px;" onclick="checkout()">إتمام الطلب</button>
+</aside>
 
-</header><!-- HERO --><div class="hero"><div class="hero-content"><div class="badge">
-✦ عالم جديد يبدأ من صفحة
-</div><h1>كل حكاية لها بداية...
-
-<br><span>
-وكل رواية لها عالم.
-</span></h1><p>اكتشف عوالم من الخيال والغموض والمغامرة.
-اقرأ، اكتشف، واحفظ حكاياتك المفضلة في Taleora.
-
-</p><div class="buttons"><button
-class="btn"
-onclick="document.getElementById('new').scrollIntoView()"
-
-«»
-
-ابدأ القراءة ←
-</button>
-
-<button
-class="btn secondary"
-onclick="document.getElementById('categories').scrollIntoView()"
-
-«»
-
-استكشف التصنيفات
-</button>
-
-</div></div></div><!-- FEATURES --><div class="features"><div class="feature">📚
-
-<b>
-مكتبة متنوعة
-</b><span>
-حكايات لكل ذوق
-</span></div><div class="feature">⭐
-
-<b>
-الأكثر قراءة
-</b><span>
-اكتشف المفضلة
-</span></div><div class="feature">❤️
-
-<b>
-مفضلاتك
-</b><span>
-احتفظ بحكاياتك
-</span></div><div class="feature">📱
-
-<b>
-تجربة مريحة
-</b><span>
-مصممة للموبايل
-</span></div></div><!-- CATEGORIES --><section id="categories"><div class="section-title"><h2>
-استكشف التصنيفات
-</h2></div><div class="categories"><div
-class="category"
-onclick="categoryFilter('رعب')"
->
-👻 رعب
-</div><div
-class="category"
-onclick="categoryFilter('غموض')"
->
-🔎 غموض
-</div><div
-class="category"
-onclick="categoryFilter('رومانسية')"
->
-❤️ رومانسية
-</div><div
-class="category"
-onclick="categoryFilter('فانتازيا')"
->
-🧙 فانتازيا
-</div><div
-class="category"
-onclick="categoryFilter('مغامرة')"
->
-🗺️ مغامرة
-</div><div
-class="category"
-onclick="categoryFilter('كلاسيكيات')"
->
-📜 كلاسيكيات
-</div></div></section><!-- NEW BOOKS --><section id="new"><div class="section-title"><h2>
-وصل حديثاً
-</h2><span
-onclick="showAll()"
-style="color:var(--gold2);cursor:pointer"
-
-«»
-
-عرض الكل ←
-</span>
-
-</div><div
-class="grid"
-id="bookGrid"
->
-</div></section><!-- PROMO --><section><div class="promo"><h2>خصم
-<strong>20%</strong>
-
-على أول طلب
-
-</h2><p>استخدم الكود:
-
-<strong>
-TALEORA20
-</strong></p><button
-class="btn"
-onclick="document.getElementById('new').scrollIntoView()"
-
-«»
-
-اكتشف الروايات ←
-</button>
-
-</div></section><!-- BEST --><section><div class="section-title"><h2>
-الأكثر قراءة ⭐
-</h2></div><div
-class="grid"
-id="bestGrid"
->
-</div></section><!-- FOOTER --><footer><strong style="color:#e8b56e">
-Taleora
-</strong><br><br>
-
-عالمك بين صفحات الحكايات © 2026
-
-</footer><!-- CART --><aside id="cartBox"><button
-class="close"
-onclick="closeCart()"
-
-«»
-
-×
-</button>
-
-<h2>
-🛒 سلة المشتريات
-</h2><div id="cartItems">
-</div><hr><h3>الإجمالي:
-
-<span id="total">
-0
-</span>جنيه
-
-</h3><button
-class="btn"
-style="width:100%"
-onclick="checkout()"
-
-«»
-
-إتمام الطلب
-</button>
-
-</aside><script>
-
+<script>
 /* =========================
    الكتب
 ========================= */
-
-const books=[
-
-{
-id:1,
-title:"ألف شمس ساطعة",
-author:"خالد حسيني",
-price:190,
-category:"رومانسية",
-cover:"covers/book1.jpg"
-},
-
-{
-id:2,
-title:"خريف البراءة",
-author:"أحمد مراد",
-price:200,
-category:"غموض",
-cover:""
-},
-
-{
-id:3,
-title:"الرحلة",
-author:"باسم خندقجي",
-price:170,
-category:"مغامرة",
-cover:""
-},
-
-{
-id:4,
-title:"قواعد العشق الأربعون",
-author:"إليف شافاق",
-price:210,
-category:"رومانسية",
-cover:""
-},
-
-{
-id:5,
-title:"عندما يعزف الشيطان",
-author:"منى الشاذلي",
-price:180,
-category:"رعب",
-cover:""
-},
-
-{
-id:6,
-title:"ليلة لا تنتهي",
-author:"محمد صادق",
-price:199,
-category:"غموض",
-cover:""
-},
-
-{
-id:7,
-title:"1984",
-author:"جورج أورويل",
-price:160,
-category:"كلاسيكيات",
-cover:""
-},
-
-{
-id:8,
-title:"مئة عام من العزلة",
-author:"غابرييل غارسيا ماركيز",
-price:220,
-category:"كلاسيكيات",
-cover:""
-},
-
-{
-id:9,
-title:"الحصان الأسود",
-author:"أحمد خالد توفيق",
-price:150,
-category:"غموض",
-cover:""
-},
-
-{
-id:10,
-title:"الأمير الصغير",
-author:"أنطوان دو سانت",
-price:140,
-category:"فانتازيا",
-cover:""
-},
-
-{
-id:11,
-title:"تذكرة إلى سرمد",
-author:"أحمد مراد",
-price:190,
-category:"مغامرة",
-cover:""
-},
-
-{
-id:12,
-title:"رجال في الشمس",
-author:"غسان كنفاني",
-price:120,
-category:"كلاسيكيات",
-cover:""
-}
-
+const books = [
+  { id: 1, title: "ألف شمس ساطعة", author: "خالد حسيني", price: 190, category: "رومانسية", cover: "covers/book1.jpg" },
+  { id: 2, title: "خريف البراءة", author: "أحمد مراد", price: 200, category: "غموض", cover: "" },
+  { id: 3, title: "الرحلة", author: "باسم خندقجي", price: 170, category: "مغامرة", cover: "" },
+  { id: 4, title: "قواعد العشق الأربعون", author: "إليف شافاق", price: 210, category: "رومانسية", cover: "" },
+  { id: 5, title: "عندما يعزف الشيطان", author: "منى الشاذلي", price: 180, category: "رعب", cover: "" },
+  { id: 6, title: "ليلة لا تنتهي", author: "محمد صادق", price: 199, category: "غموض", cover: "" },
+  { id: 7, title: "1984", author: "جورج أورويل", price: 160, category: "كلاسيكيات", cover: "" },
+  { id: 8, title: "مئة عام من العزلة", author: "غابرييل غارسيا ماركيز", price: 220, category: "كلاسيكيات", cover: "" },
+  { id: 9, title: "الحصان الأسود", author: "أحمد خالد توفيق", price: 150, category: "غموض", cover: "" },
+  { id: 10, title: "الأمير الصغير", author: "أنطوان دو سانت", price: 140, category: "فانتازيا", cover: "" },
+  { id: 11, title: "تذكرة إلى سرمد", author: "أحمد مراد", price: 190, category: "مغامرة", cover: "" },
+  { id: 12, title: "رجال في الشمس", author: "غسان كنفاني", price: 120, category: "كلاسيكيات", cover: "" }
 ];
 
+let cart = [];
 
 /* =========================
-   السلة
+   إنشاء كارت الكتاب
 ========================= */
+function card(book) {
+  let coverContent = book.cover 
+    ? `<img src="${book.cover}" alt="${book.title}" onerror="this.onerror=null;this.parentElement.innerHTML='<div>${book.title}</div>';">`
+    : `<div>${book.title}</div>`;
 
-let cart=[];
-
-
-/* =========================
-   إنشاء كارت
-========================= */
-
-function card(book){
-
-let cover=
-
-book.cover
-
-?
-
-`
-<img src="book1.jpg" alt="غلاف الرواية">
-onerror="this.onerror=null;this.src='book1.jpg';"
->
-`
-
-:
-
-`
-<div>
-${book.title}
-</div>
-`;
-
-
-return `
-
-<article class="book">
-
-<div class="cover">
-
-${cover}
-
-</div>
-
-<h3>
-${book.title}
-</h3>
-
-<div class="author">
-${book.author}
-</div>
-
-<div class="book-bottom">
-
-<div class="price">
-${book.price} ج
-</div>
-
-<button
-class="read"
-onclick="openBook(${book.id})"
->
-اقرأ الآن
-</button>
-
-</div>
-
-</article>
-
-`;
-
+  return `
+    <article class="book">
+      <div class="cover">
+        ${coverContent}
+      </div>
+      <h3>${book.title}</h3>
+      <div class="author">${book.author}</div>
+      <div class="book-bottom">
+        <div class="price">${book.price} ج</div>
+        <button class="read" onclick='addToCart(${book.id})'>أضف للسلة</button>
+      </div>
+    </article>
+  `;
 }
-
 
 /* =========================
    عرض الكتب
 ========================= */
+function render(list = books) {
+  const gridElem = document.getElementById("bookGrid");
+  const bestElem = document.getElementById("bestGrid");
 
-function render(list=books){
+  if (list.length === 0) {
+    gridElem.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--muted); padding: 30px;">عذراً، لم نجد نتائج مطابقة لبحثك.</p>`;
+  } else {
+    gridElem.innerHTML = list.map(card).join("");
+  }
 
-document.getElementById("bookGrid")
-.innerHTML=
-list.map(card).join("");
-
-
-document.getElementById("bestGrid")
-.innerHTML=
-books
-.slice(4,10)
-.map(card)
-.join("");
-
+  bestElem.innerHTML = books.slice(4, 10).map(card).join("");
 }
-
 
 /* =========================
-   فتح صفحة الكتاب
+   البحث الفوري
 ========================= */
-
-function openBook(id){
-
-window.location.href=
-"book.html?id="+id;
-
+function filterBooks() {
+  let q = document.getElementById("search").value.trim().toLowerCase();
+  let result = books.filter(book => 
+    book.title.toLowerCase().includes(q) || book.author.toLowerCase().includes(q)
+  );
+  render(result);
 }
-
-
-/* =========================
-   البحث
-========================= */
-
-function filterBooks(){
-
-let q=
-document.getElementById("search")
-.value
-.trim()
-.toLowerCase();
-
-
-let result=
-books.filter(book=>
-
-book.title
-.toLowerCase()
-.includes(q)
-
-||
-
-book.author
-.toLowerCase()
-.includes(q)
-
-);
-
-
-render(result);
-
-}
-
 
 /* =========================
    التصنيفات
 ========================= */
-
-function categoryFilter(category){
-
-let result=
-books.filter(
-book=>book.category===category
-);
-
-render(result);
-
-document.getElementById("new")
-.scrollIntoView({
-behavior:"smooth"
-});
-
+function categoryFilter(category) {
+  let result = books.filter(book => book.category === category);
+  render(result);
+  document.getElementById("new").scrollIntoView({ behavior: "smooth" });
 }
-
 
 /* =========================
    عرض الكل
 ========================= */
-
-function showAll(){
-
-document.getElementById("search")
-.value="";
-
-render();
-
-document.getElementById("new")
-.scrollIntoView({
-behavior:"smooth"
-});
-
+function showAll() {
+  document.getElementById("search").value = "";
+  render();
+  document.getElementById("new").scrollIntoView({ behavior: "smooth" });
 }
-
 
 /* =========================
    السلة
 ========================= */
-
-function add(book){
-
-cart.push(book);
-
-updateCart();
-
-openCart();
-
+function addToCart(id) {
+  let book = books.find(b => b.id === id);
+  if (book) {
+    cart.push(book);
+    updateCart();
+    openCart();
+  }
 }
 
+function updateCart() {
+  document.getElementById("count").textContent = cart.length;
+  
+  document.getElementById("cartItems").innerHTML = cart.length
+    ? cart.map((book, index) => `
+        <div class="cart-item">
+          <span>${book.title}</span>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <b>${book.price} ج</b>
+            <button onclick="removeFromCart(${index})" style="background:none; border:none; color:#ff4757; cursor:pointer;">×</button>
+          </div>
+        </div>
+      `).join("")
+    : "<p style='color:var(--muted); text-align:center;'>السلة فارغة حالياً.</p>";
 
-function updateCart(){
-
-document.getElementById("count")
-.textContent=
-cart.length;
-
-
-document.getElementById("cartItems")
-.innerHTML=
-
-cart.length
-
-?
-
-cart.map(book=>`
-
-<div class="cart-item">
-
-<span>
-${book.title}
-</span>
-
-<b>
-${book.price} ج
-</b>
-
-</div>
-
-`).join("")
-
-:
-
-"<p>السلة فارغة حالياً.</p>";
-
-
-document.getElementById("total")
-.textContent=
-
-cart.reduce(
-(sum,book)=>sum+book.price,
-0
-);
-
+  document.getElementById("total").textContent = cart.reduce((sum, book) => sum + book.price, 0);
 }
 
-
-function openCart(){
-
-document.getElementById("cartBox")
-.classList.add("open");
-
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
 }
 
-
-function closeCart(){
-
-document.getElementById("cartBox")
-.classList.remove("open");
-
+function openCart() {
+  document.getElementById("cartBox").classList.add("open");
 }
 
-
-function checkout(){
-
-if(cart.length===0){
-
-alert(
-"السلة فارغة حالياً."
-);
-
-return;
-
+function closeCart() {
+  document.getElementById("cartBox").classList.remove("open");
 }
 
-alert(
-"تم تجهيز الطلب تجريبياً ❤️"
-);
-
+function checkout() {
+  if (cart.length === 0) {
+    alert("السلة فارغة حالياً.");
+    return;
+  }
+  alert("تم تجهيز الطلب بنجاح! شكراً لاختيارك Taleora ❤️");
+  cart = [];
+  updateCart();
+  closeCart();
 }
 
-
-/* تشغيل */
-
+/* تشغيل أولي */
 render();
-
 updateCart();
+</script>
 
-</script></body>
+</body>
 </html>
