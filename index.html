@@ -364,8 +364,8 @@ footer{
   color:var(--muted);
 }
 
-/* CART */
-#cartBox{
+/* SIDEBAR & CART (SHARED DRAWER STYLE) */
+.drawer {
   position:fixed;
   inset:0 0 0 auto;
   width:min(390px,90vw);
@@ -378,16 +378,34 @@ footer{
   overflow:auto;
 }
 
-#cartBox.open{
+.drawer.open {
   transform:none;
 }
 
-.cart-item{
-  padding:13px 0;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
+.drawer-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.drawer-links li {
+  margin-bottom: 15px;
+}
+
+.drawer-links li a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  background: #ffffff07;
+  transition: 0.2s;
+}
+
+.drawer-links li a:hover {
+  background: var(--gold);
+  color: #000;
 }
 
 .close{
@@ -397,6 +415,14 @@ footer{
   border:0;
   font-size:27px;
   cursor:pointer;
+}
+
+.cart-item{
+  padding:13px 0;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
 
 /* MOBILE */
@@ -459,7 +485,7 @@ footer{
 
 <!-- HEADER -->
 <header>
-  <button class="icon" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="الأعلى">☰</button>
+  <button class="icon" onclick="openMenu()" title="القائمة">☰</button>
   <div class="logo" onclick="showAll()">رواية حكاية<small>TALEORA</small></div>
   <input id="search" class="search" placeholder="ابحث عن رواية أو مؤلف..." oninput="filterBooks()">
   <button class="icon" onclick="openCart()" title="السلة">🛒<span id="count">0</span></button>
@@ -529,8 +555,20 @@ footer{
   عالمك بين صفحات الحكايات © 2026
 </footer>
 
-<!-- CART -->
-<aside id="cartBox">
+<!-- MENU DRAWER (القائمة الجانبية للـ 3 شرط) -->
+<aside id="menuBox" class="drawer">
+  <button class="close" onclick="closeMenu()">×</button>
+  <h2>🧭 القائمة الرئيسية</h2>
+  <ul class="drawer-links">
+    <li><a href="#" onclick="closeMenu(); showAll();">الرئيسية</a></li>
+    <li><a href="#categories" onclick="closeMenu()">التصنيفات</a></li>
+    <li><a href="#new" onclick="closeMenu()">وصل حديثاً</a></li>
+    <li><a href="#" onclick="closeMenu(); alert('موقع Taleora لعرض وبيع الروايات والحكايات الممتعة.');">عن الموقع</a></li>
+  </ul>
+</aside>
+
+<!-- CART DRAWER (سلة المشتريات) -->
+<aside id="cartBox" class="drawer">
   <button class="close" onclick="closeCart()">×</button>
   <h2>🛒 سلة المشتريات</h2>
   <div id="cartItems"></div>
@@ -629,7 +667,19 @@ function showAll() {
 }
 
 /* =========================
-   السلة
+   القائمة الجانبية (Menu Drawer)
+========================= */
+function openMenu() {
+  document.getElementById("menuBox").classList.add("open");
+  closeCart(); // إغلاق السلة لو كانت مفتوحة
+}
+
+function closeMenu() {
+  document.getElementById("menuBox").classList.remove("open");
+}
+
+/* =========================
+   السلة (Cart Drawer)
 ========================= */
 function addToCart(id) {
   let book = books.find(b => b.id === id);
@@ -665,6 +715,7 @@ function removeFromCart(index) {
 
 function openCart() {
   document.getElementById("cartBox").classList.add("open");
+  closeMenu(); // إغلاق القائمة لو كانت مفتوحة
 }
 
 function closeCart() {
