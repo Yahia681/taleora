@@ -183,7 +183,13 @@ footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;bor
       <span>الإجمالي:</span>
       <b style="color:var(--gold2);" id="totalPrice">0 جنيه</b>
     </div>
-    <button class="btn" style="width:100%;text-align:center;" onclick="checkout()">إتمام الشراء</button>
+    
+    <!-- خيارات إتمام الطلب عبر وسائل التواصل المختلفة -->
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button class="btn" style="width:100%;text-align:center;background:linear-gradient(135deg, #25D366, #128C7E);color:white;font-size:13px;padding:10px;" onclick="checkoutWhatsApp()">🟢 إتمام عبر واتساب</button>
+      <button class="btn" style="width:100%;text-align:center;background:linear-gradient(135deg, #0088cc, #00aaee);color:white;font-size:13px;padding:10px;" onclick="checkoutTelegram()">🔵 إتمام عبر تليجرام</button>
+      <button class="btn" style="width:100%;text-align:center;background:linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);color:white;font-size:13px;padding:10px;" onclick="checkoutInstagram()">🟣 إتمام عبر إنستجرام</button>
+    </div>
   </div>
 </aside>
 
@@ -283,22 +289,25 @@ function updateCartUI() {
   document.getElementById("totalPrice").textContent = cart.reduce((sum, item) => sum + item.price, 0) + " جنيه";
 }
 
-function checkout() {
-  if (cart.length === 0) return alert("السلة فارغة!");
+// دالة مشتركة لتجهيز البيانات والرسالة
+function getOrderDetails() {
+  if (cart.length === 0) {
+    alert("السلة فارغة!");
+    return null;
+  }
 
   let name = document.getElementById("custName").value.trim();
   let phone = document.getElementById("custPhone").value.trim();
   let address = document.getElementById("custAddress").value.trim();
 
   if (!name || !phone || !address) {
-    return alert("يرجى إدخال (الاسم، رقم الموبايل، والعنوان) لإتمام الطلب بنجاح.");
+    alert("يرجى إدخال (الاسم، رقم الموبايل، والعنوان) لإتمام الطلب بنجاح.");
+    return null;
   }
 
-  // تجميع تفاصيل الكتب المطلوبة
   let booksListText = cart.map(item => `- ${item.title} (${item.price} ج.م)`).join('\n');
   let totalPrice = document.getElementById("totalPrice").textContent;
 
-  // تجهيز نص رسالة الواتساب
   let message = `🛒 *طلب جديد من موقع Taleora*\n\n`;
   message += `👤 *الاسم:* ${name}\n`;
   message += `📞 *الموبايل:* ${phone}\n`;
@@ -306,22 +315,45 @@ function checkout() {
   message += `📚 *الكتب المطلوبة:*\n${booksListText}\n\n`;
   message += `💰 *الإجمالي:* ${totalPrice}`;
 
-  let encodedMessage = encodeURIComponent(message);
+  return { name, phone, message };
+}
 
-  // ⚠️ ملحوظة: غير الرقم ده برقم واتساب بتاعك (كود الدولة + رقمك بدون الصفر الأول)
-  let myWhatsAppNumber = "201055245130"; 
-
-  // فتح الواتساب مباشرة بالرسالة
-  window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`, '_blank');
-
-  // تفريغ السلة والحقول بعد الطلب
+// تفريغ السلة والحقول بعد الطلب
+function resetCartAndInputs() {
   cart = [];
   document.getElementById("custName").value = "";
   document.getElementById("custPhone").value = "";
   document.getElementById("custAddress").value = "";
-
   updateCartUI();
   toggleCart();
+}
+
+// إتمام الشراء عبر واتساب
+function checkoutWhatsApp() {
+  let order = getOrderDetails();
+  if (!order) return;
+  let myWhatsAppNumber = "201055245130"; 
+  window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(order.message)}`, '_blank');
+  resetCartAndInputs();
+}
+
+// إتمام الشراء عبر تليجرام
+function checkoutTelegram() {
+  let order = getOrderDetails();
+  if (!order) return;
+  let telegramUser = "xyo_zakaria_x";
+  window.open(`https://t.me/${telegramUser}?text=${encodeURIComponent(order.message)}`, '_blank');
+  resetCartAndInputs();
+}
+
+// إتمام الشراء عبر إنستجرام
+function checkoutInstagram() {
+  let order = getOrderDetails();
+  if (!order) return;
+  let instaUrl = "https://www.instagram.com/yahia__160?igsi=cXJlc3VwZGFkbmdh";
+  alert(`شكراً لك يا ${order.name} ❤️\nسيتم توجيهك لصفحة إنستجرام، يرجى إرسال تفاصيل طلبك في رسالة خاصة.`);
+  window.open(instaUrl, '_blank');
+  resetCartAndInputs();
 }
 
 function handleSearch() {
