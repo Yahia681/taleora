@@ -289,6 +289,7 @@ section{
   font-size:16px;
   font-weight:900;
   background:radial-gradient(circle at 30% 20%, #52717c, #162329 65%);
+  position: relative;
 }
 
 .cover img{
@@ -296,6 +297,23 @@ section{
   height:100%;
   object-fit:cover;
   display:block;
+}
+
+.fav-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.6);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: 0.2s;
 }
 
 .book h3{
@@ -508,7 +526,7 @@ footer{
 <div class="features">
   <div class="feature">📚<b>مكتبة متنوعة</b><span>حكايات لكل ذوق</span></div>
   <div class="feature">⭐<b>الأكثر قراءة</b><span>اكتشف المفضلة</span></div>
-  <div class="feature">❤️<b>مفضلاتك</b><span>احتفظ بحكاياتك</span></div>
+  <div class="feature" style="cursor: pointer;" onclick="showFavorites()">❤️<b>مفضلاتك</b><span>احتفظ بحكاياتك</span></div>
   <div class="feature">📱<b>تجربة مريحة</b><span>مصممة للموبايل</span></div>
 </div>
 
@@ -555,7 +573,7 @@ footer{
   عالمك بين صفحات الحكايات © 2026
 </footer>
 
-<!-- MENU DRAWER (القائمة الجانبية للـ 3 شرط) -->
+<!-- MENU DRAWER -->
 <aside id="menuBox" class="drawer">
   <button class="close" onclick="closeMenu()">×</button>
   <h2>🧭 القائمة الرئيسية</h2>
@@ -563,11 +581,12 @@ footer{
     <li><a href="#" onclick="closeMenu(); showAll();">الرئيسية</a></li>
     <li><a href="#categories" onclick="closeMenu()">التصنيفات</a></li>
     <li><a href="#new" onclick="closeMenu()">وصل حديثاً</a></li>
+    <li><a href="#" onclick="closeMenu(); showFavorites();">مفضلاتك المحفوظة ❤️</a></li>
     <li><a href="#" onclick="closeMenu(); alert('موقع Taleora لعرض وبيع الروايات والحكايات الممتعة.');">عن الموقع</a></li>
   </ul>
 </aside>
 
-<!-- CART DRAWER (سلة المشتريات) -->
+<!-- CART DRAWER -->
 <aside id="cartBox" class="drawer">
   <button class="close" onclick="closeCart()">×</button>
   <h2>🛒 سلة المشتريات</h2>
@@ -606,10 +625,15 @@ function card(book) {
     ? `<img src="${book.cover}" alt="${book.title}" onerror="this.onerror=null;this.parentElement.innerHTML='<div>${book.title}</div>';">`
     : `<div>${book.title}</div>`;
 
+  let favorites = JSON.parse(localStorage.getItem('taleora_favorites')) || [];
+  let isFav = favorites.includes(book.id);
+  let favColor = isFav ? '#ff4757' : '#fff';
+
   return `
     <article class="book">
       <div class="cover">
         ${coverContent}
+        <button class="fav-icon" onclick='toggleFavorite(${book.id})' style="color: ${favColor};" title="إضافة للمفضلة">♥</button>
       </div>
       <h3>${book.title}</h3>
       <div class="author">${book.author}</div>
@@ -629,12 +653,36 @@ function render(list = books) {
   const bestElem = document.getElementById("bestGrid");
 
   if (list.length === 0) {
-    gridElem.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--muted); padding: 30px;">عذراً، لم نجد نتائج مطابقة لبحثك.</p>`;
+    gridElem.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--muted); padding: 30px;">عذراً، لم تجد أي روايات في المفضلة حالياً.</p>`;
   } else {
     gridElem.innerHTML = list.map(card).join("");
   }
 
   bestElem.innerHTML = books.slice(4, 10).map(card).join("");
+}
+
+/* =========================
+   نظام المفضلة
+========================= */
+function toggleFavorite(id) {
+  let favorites = JSON.parse(localStorage.getItem('taleora_favorites')) || [];
+  let index = favorites.indexOf(id);
+  
+  if (index > -1) {
+    favorites.splice(index, 1);
+  } else {
+    favorites.push(id);
+  }
+  
+  localStorage.setItem('taleora_favorites', JSON.stringify(favorites));
+  render();
+}
+
+function showFavorites() {
+  let favorites = JSON.parse(localStorage.getItem('taleora_favorites')) || [];
+  let result = books.filter(book => favorites.includes(book.id));
+  render(result);
+  document.getElementById("new").scrollIntoView({ behavior: "smooth" });
 }
 
 /* =========================
@@ -667,11 +715,11 @@ function showAll() {
 }
 
 /* =========================
-   القائمة الجانبية (Menu Drawer)
+   القائمة الجانبية
 ========================= */
 function openMenu() {
   document.getElementById("menuBox").classList.add("open");
-  closeCart(); // إغلاق السلة لو كانت مفتوحة
+  closeCart();
 }
 
 function closeMenu() {
@@ -679,7 +727,7 @@ function closeMenu() {
 }
 
 /* =========================
-   السلة (Cart Drawer)
+   السلة
 ========================= */
 function addToCart(id) {
   let book = books.find(b => b.id === id);
@@ -715,7 +763,7 @@ function removeFromCart(index) {
 
 function openCart() {
   document.getElementById("cartBox").classList.add("open");
-  closeMenu(); // إغلاق القائمة لو كانت مفتوحة
+  closeMenu();
 }
 
 function closeCart() {
